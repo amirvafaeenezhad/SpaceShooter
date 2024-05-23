@@ -21,7 +21,7 @@ public class Laser : MonoBehaviour
         transform.Translate(Vector3.up * _SpeedUp * Time.deltaTime);
         if (transform.position.y > 7)
         {
-            Destroy(this.GameObject);
+            Destroy(this.gameObject);
         }
     }
 }
