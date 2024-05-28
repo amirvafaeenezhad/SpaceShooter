@@ -5,14 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private float _sppeed = 1;
+    private float _sppeed = 5;
     [SerializeField]
     private GameObject _LaserPrefab;
     
     void Start()
     {
         transform.position = new Vector3(1, 1, 1);
-        
     }
 
     void Update()
@@ -21,6 +20,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(_LaserPrefab , transform.position, Quaternion.identity);
+            //Debug.Log("created" );
         }
     }
 
