@@ -20,7 +20,9 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        
+        Debug.Log("the y position is: " + transform.position.y);    
+        
         transform.Translate(Vector3.up * _SpeedUp * Time.deltaTime);
         if (transform.position.y > 7)
         {

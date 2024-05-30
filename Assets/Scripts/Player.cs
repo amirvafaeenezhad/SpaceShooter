@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
     private float _sppeed = 5;
     [SerializeField]
     private GameObject _LaserPrefab;
+    [SerializeField]
+    private float _fireRate = 0.3f;
+    [SerializeField]
+    private float _fireCan = 0;
     
     void Start()
     {
@@ -17,13 +21,22 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculatMovement();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _fireCan)
         {
-            Instantiate(_LaserPrefab , transform.position, Quaternion.identity);
-            //Debug.Log("created" );
+            Shoot();
         }
+        
+        
     }
 
+
+
+    void Shoot()
+    {
+        Instantiate(_LaserPrefab , transform.position + new Vector3(0,.8f, 0), Quaternion.identity);
+            _fireCan = Time.time + _fireRate;
+    }
+    
     void CalculatMovement()
     {
         float horizontalOutput = Input.GetAxis("Horizontal");
