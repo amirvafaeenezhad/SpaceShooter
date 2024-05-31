@@ -14,10 +14,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (_Enemy == null)
-        {
-            Debug.LogError("Enemy prefab is not assigned");
-        }
+        
     }
 
     // Update is called once per frame
@@ -29,24 +26,33 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            NewEnemy();
             Destroy(this.gameObject);
         }
             
 
     }
-
-    private void OnDestroy()
-    {
-        NewEnemy();
-    }
-
+    
     private void NewEnemy()
     {
         int RandomX = Random.Range(-11, 11);
         Instantiate(_Enemy, new Vector3(RandomX, 7, transform.position.z), Quaternion.identity);
 
     }
-   
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (other.tag == "Laser")
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
+    }    
 }
 
 
