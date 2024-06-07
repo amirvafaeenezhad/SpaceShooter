@@ -35,16 +35,22 @@ public class Enemy : MonoBehaviour
     
     private void NewEnemy()
     {
-        int RandomX = Random.Range(-11, 11);
+        int RandomX = Random.Range(-9, 9);
         Instantiate(_Enemy, new Vector3(RandomX, 7, transform.position.z), Quaternion.identity);
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("hit:"+ other.transform.name);
         if (other.tag == "Player")
         {
-            Destroy(this.gameObject);
+            Player player = other.transform.GetComponent<Player>();
+            if (player != null)
+            {
+                player.Damage();
+            }
+
         }
 
         if (other.tag == "Laser")

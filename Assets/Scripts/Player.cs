@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private float _sppeed = 5;
+    private float _sppeed = 10;
     [SerializeField]
     private GameObject _LaserPrefab;
     [SerializeField]
     private float _fireRate = 0.3f;
     [SerializeField]
     private float _fireCan = 0;
+    [SerializeField]
+    private int _lives=3;
     
     void Start()
     {
@@ -36,6 +39,17 @@ public class Player : MonoBehaviour
         Instantiate(_LaserPrefab , transform.position + new Vector3(0,.8f, 0), Quaternion.identity);
             _fireCan = Time.time + _fireRate;
     }
+
+    public void Damage()
+    {
+        _lives--;
+
+        if (_lives < 1)
+        {
+            Destroy(this.gameObject);
+        } 
+    }
+    
     
     void CalculatMovement()
     {
