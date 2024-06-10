@@ -6,24 +6,21 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]
-    private float _SpeedUp = 8f;
+    [SerializeField] private float speedUp = 8f;
 
-    [SerializeField] 
-    private GameObject _LaserPrefab;
+    [SerializeField] private GameObject laserPrefab;
 
     void Start()
     {
-        Debug.Log("created" );
+        Debug.Log("created");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        Debug.Log("the y position is: " + transform.position.y);    
-        
-        transform.Translate(Vector3.up * _SpeedUp * Time.deltaTime);
+        Debug.Log("the y position is: " + transform.position.y);
+
+        transform.Translate(Vector3.up * speedUp * Time.deltaTime);
         if (transform.position.y > 7)
         {
             Destroy(this.gameObject);

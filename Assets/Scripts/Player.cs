@@ -5,75 +5,66 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    private float _sppeed = 10;
-    [SerializeField]
-    private GameObject _LaserPrefab;
-    [SerializeField]
-    private float _fireRate = 0.3f;
-    [SerializeField]
-    private float _fireCan = 0;
-    [SerializeField]
-    private int _lives=3;
+    [SerializeField] private float speed = 10;
+    [SerializeField] private GameObject laserPrefab;
+    [SerializeField] private float fireRate = 0.3f;
+    [SerializeField] private float fireCan = 0;
+    [SerializeField] private int lives = 3;
     
-    void Start()
+    private void Start()
     {
         transform.position = new Vector3(1, 1, 1);
     }
 
-    void Update()
+    private void Update()
     {
-        CalculatMovement();
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _fireCan)
+        CalculateMovement();
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > fireCan)
         {
             Shoot();
         }
-        
-        
     }
-
-
-
-    void Shoot()
+    private void Shoot()
     {
-        Instantiate(_LaserPrefab , transform.position + new Vector3(0,.8f, 0), Quaternion.identity);
-            _fireCan = Time.time + _fireRate;
+        Instantiate(laserPrefab , transform.position + new Vector3(0,.8f, 0), Quaternion.identity);
+            fireCan = Time.time + fireRate;
     }
 
     public void Damage()
     {
-        _lives--;
+        lives--;
 
-        if (_lives < 1)
+        if (lives < 1)
         {
             Destroy(this.gameObject);
         } 
     }
     
     
-    void CalculatMovement()
+    void CalculateMovement()
     {
         float horizontalOutput = Input.GetAxis("Horizontal");
         float verticalOutput = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3 (horizontalOutput, verticalOutput, 0);
-        
-        transform.Translate(  direction * _sppeed * Time.deltaTime);
-        if ( transform.position.y >= 0)
+
+        Transform transform1 = transform;
+        transform.Translate(  direction * speed * Time.deltaTime);
+        if ( transform1.position.y >= 0)
         {
-            transform.position = new Vector3(transform.position.x, 0, 0);
+            transform1.position = new Vector3(transform.position.x, 0, 0);
         }
-        else if (transform.position.y <= -3)
+        else if (transform1.position.y <= -3)
         {
-            transform.position = new Vector3(transform.position.x, -3, 0);
+            transform1.position = new Vector3(transform.position.x, -3, 0);
         }
 
-        if (transform.position.x > 9)
+        if (transform1.position.x > 9)
         {
-            transform.position = new Vector3(-9,transform.position.y, 0);
+            transform1.position = new Vector3(-9,transform.position.y, 0);
         }
-        else if (transform.position.x < -9)
+        else if (transform1.position.x < -9)
         {
-            transform.position = new Vector3(9, transform.position.y, 0);
+            transform1.position = new Vector3(9, transform.position.y, 0);
         }
     }
 }
