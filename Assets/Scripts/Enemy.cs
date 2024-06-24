@@ -14,16 +14,16 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            NewEnemy();
+           // NewEnemy();
             Destroy(this.gameObject);
         }
     }
 
-    private void NewEnemy()
-    {
-        int randomX = Random.Range(-9, 9);
-        Instantiate(enemy, new Vector3(randomX, 7, transform.position.z), Quaternion.identity);
-    }
+    //private void NewEnemy()
+   //{
+       // int randomX = Random.Range(-9, 9);
+     //   Instantiate(enemy, new Vector3(randomX, 7, transform.position.z), Quaternion.identity);
+   // }
 
     private void OnTriggerEnter(Collider other)
     {
