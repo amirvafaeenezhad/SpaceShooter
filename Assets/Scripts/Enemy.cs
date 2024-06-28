@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
      //   Instantiate(enemy, new Vector3(randomX, 7, transform.position.z), Quaternion.identity);
    // }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("hit:" + other.transform.name);
         if (other.CompareTag("Player"))
