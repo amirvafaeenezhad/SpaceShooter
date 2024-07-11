@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  laserPrefab: {fileID: 912491134147209212, guid: e1072f5f8c468e34088bda6fdfdc5a71, type: 3}
+  laserPrefab: {fileID: 3466591036059397304, guid: e1072f5f8c468e34088bda6fdfdc5a71, type: 3}
   fireRate: 0.3
   fireCan: 0
   lives: 3
