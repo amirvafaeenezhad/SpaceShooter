@@ -136,3 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b904f28c7936e30418cd4fd587082947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tripleShotPowerUp: {fileID: 3748602648364507818}
+  Speed: 5
