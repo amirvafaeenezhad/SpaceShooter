@@ -23,6 +23,10 @@ public class Laser : MonoBehaviour
         transform.Translate(Vector3.up * speedUp * Time.deltaTime);
         if (transform.position.y > 7)
         {
+            if (transform.parent != null)
+            {
+                Destroy(transform.parent.gameObject);
+            }
             Destroy(this.gameObject);
             //Destroy(_LaserPrefab);
         }

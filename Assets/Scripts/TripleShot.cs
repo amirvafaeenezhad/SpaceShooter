@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class TripleShot : MonoBehaviour
 {
     [SerializeField] private GameObject tripleShotPowerUp;
-    [SerializeField] private float Speed=5;
+    [SerializeField] private float speed=5;
 
     // Start is called before the first frame update
     void Start()
@@ -19,19 +19,23 @@ public class TripleShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position=new Vector3(Random.Range(-11, 11), 7, 1);
-        Instantiate(tripleShotPowerUp, transform.position, Quaternion.identity);
-            
-        while(-4< transform.position.y && transform.position.y<7)
+        transform.Translate(Vector3.down*speed*Time.deltaTime);
+
+        if (transform.position.y<-4.5)
         {
-            transform.Translate(Vector3.down*Speed*Time.deltaTime);
+            Destroy(this.gameObject);
+
         }
-        Destroy(this.GameObject());
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
+            Player player = other.transform.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TripleShotActive();
+            }
             Destroy(this.gameObject);
         }
     }
