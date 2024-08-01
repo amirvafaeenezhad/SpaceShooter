@@ -10,6 +10,7 @@ public class TripleShot : MonoBehaviour
 {
     [SerializeField] private GameObject tripleShotPowerUp;
     [SerializeField] private float speed=5;
+    [SerializeField] private int powerUpID;
 
     // Start is called before the first frame update
     void Start()
