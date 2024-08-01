@@ -6,7 +6,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public class TripleShot : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
     [SerializeField] private GameObject tripleShotPowerUp;
     [SerializeField] private float speed=5;
