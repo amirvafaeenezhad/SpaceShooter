@@ -40,7 +40,7 @@ public class SpawnManager : MonoBehaviour
         while (stopSpawn == false)
         {
             Vector3 posToSpawn = new Vector3(Random.Range(-8, 8), 7, 0);
-            int RandomPowerUp = Random.Range(0, 2);
+            int RandomPowerUp = Random.Range(0, 3);
             Instantiate(powerUps[RandomPowerUp], posToSpawn, Quaternion.identity);
             yield return  new WaitForSeconds(Random.Range(7,15));
         }

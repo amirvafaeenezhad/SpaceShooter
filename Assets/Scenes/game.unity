@@ -252,7 +252,7 @@ MonoBehaviour:
   powerUps:
   - {fileID: 7258808564672028468, guid: 5c3627e2185d9a14b9151aaf612d69fb, type: 3}
   - {fileID: 3202889115652238527, guid: f34e46b8040ddb04facf293a69bbaa5f, type: 3}
-  - {fileID: 0}
+  - {fileID: 2299264725361843410}
   tripleShotPowerUpPrefab: {fileID: 7258808564672028468, guid: 5c3627e2185d9a14b9151aaf612d69fb, type: 3}
   speedPowerUpPrefab: {fileID: 3202889115652238527, guid: f34e46b8040ddb04facf293a69bbaa5f, type: 3}
 --- !u!4 &432642497
@@ -527,6 +527,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75bda5eb5105b1941bba928d8c96c058, type: 3}
+--- !u!1 &2299264725361843410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8154748922597897530, guid: 75bda5eb5105b1941bba928d8c96c058, type: 3}
+  m_PrefabInstance: {fileID: 2299264725361843409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6789397088524340256
 PrefabInstance:
   m_ObjectHideFlags: 0
