@@ -35,7 +35,13 @@ public class PowerUp : MonoBehaviour
             Player player = other.transform.GetComponent<Player>();
             if (player != null)
             {
-                player.TripleShotActive();
+                switch (powerUpID)
+                {
+                    case 0: player.TripleShotActive(); break;
+                    case 1: player.speedBoosterActive(); break;
+                    case 2: Debug.Log("shield power up was collected."); break;
+                    default:Debug.Log("Default Value"); break;
+                }
             }
             Destroy(this.gameObject);
         }

@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float speed = 10;
+    [SerializeField] private float speed = 7;
+    [SerializeField] private float speedBooster = 2;
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] private float fireRate = 0.3f;
     [SerializeField] private float fireCan = 0;
     [SerializeField] private int lives = 3;
     [SerializeField] private SpawnManager spawnManager;
     [SerializeField] private GameObject TripleShotPrefab;
-    [SerializeField] private bool isTripleShotActive;
+    private bool isTripleShotActive;
+    private bool isSpeedBoostActive = false;
     
 
 
@@ -69,7 +71,15 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3 (horizontalOutput, verticalOutput, 0);
 
         Transform transform1 = transform;
-        transform.Translate(  direction * speed * Time.deltaTime);
+        if (isSpeedBoostActive == false)
+        {
+            transform.Translate(  direction * speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(  direction * speed * speedBooster * Time.deltaTime);
+        }
+        
         if ( transform1.position.y >= 0)
         {
             transform1.position = new Vector3(transform.position.x, 0, 0);
@@ -94,10 +104,21 @@ public class Player : MonoBehaviour
          isTripleShotActive = true;
          StartCoroutine(tripleShotPowerDownRoutine());
      }
-
+        
         IEnumerator tripleShotPowerDownRoutine()
         {
             yield return new WaitForSeconds(5);
             isTripleShotActive = false;
+        }
+        public void speedBoosterActive()
+        {
+            isSpeedBoostActive = true;
+            StartCoroutine(speedBoosterPowerDownRoutine());
+        }
+
+        IEnumerator speedBoosterPowerDownRoutine()
+        {
+            yield return new WaitForSeconds(5);
+            isSpeedBoostActive = false;
         }
 }
