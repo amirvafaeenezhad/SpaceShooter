@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1290569839716513398}
   - component: {fileID: 773942270554641259}
   - component: {fileID: 6346204445195416355}
+  - component: {fileID: -1503761719271655144}
   m_Layer: 0
   m_Name: Shield-PowerUp
   m_TagString: Untagged
@@ -144,7 +145,7 @@ Animator:
   m_GameObject: {fileID: 8154748922597897530}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5ce23a88b674eb74b9e6a36e8b3d632a, type: 2}
+  m_Controller: {fileID: 9100000, guid: fb81491175f94d44596233d709d18602, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -155,3 +156,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1503761719271655144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8154748922597897530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5081bd81f5304414abccd2fb4ee36c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tripleShotPowerUp: {fileID: 0}
+  speed: 5
+  powerUpID: 2
