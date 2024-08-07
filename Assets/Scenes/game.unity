@@ -249,6 +249,10 @@ MonoBehaviour:
   enemyPrefab: {fileID: 4620603117208555204, guid: 9bc1cb736a7ee8e46ac66b12c2436316, type: 3}
   enemyContainer: {fileID: 2034222024}
   stopSpawn: 0
+  powerUps:
+  - {fileID: 7258808564672028468, guid: 5c3627e2185d9a14b9151aaf612d69fb, type: 3}
+  - {fileID: 3202889115652238527, guid: f34e46b8040ddb04facf293a69bbaa5f, type: 3}
+  - {fileID: 0}
   tripleShotPowerUpPrefab: {fileID: 7258808564672028468, guid: 5c3627e2185d9a14b9151aaf612d69fb, type: 3}
   speedPowerUpPrefab: {fileID: 3202889115652238527, guid: f34e46b8040ddb04facf293a69bbaa5f, type: 3}
 --- !u!4 &432642497
