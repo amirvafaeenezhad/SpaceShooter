@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8154748922597897530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.81, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -143,7 +143,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8154748922597897530}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: fb81491175f94d44596233d709d18602, type: 2}
   m_CullingMode: 0
@@ -168,6 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5081bd81f5304414abccd2fb4ee36c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tripleShotPowerUp: {fileID: 0}
+  tripleShotPowerUp: {fileID: 8154748922597897530}
   speed: 5
   powerUpID: 2

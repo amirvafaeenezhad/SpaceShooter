@@ -39,7 +39,7 @@ public class PowerUp : MonoBehaviour
                 {
                     case 0: player.TripleShotActive(); break;
                     case 1: player.speedBoosterActive(); break;
-                    case 2: Debug.Log("shield power up was collected."); break;
+                    case 2: player.shieldBoosterActive(); break;
                     default:Debug.Log("Default Value"); break;
                 }
             }
