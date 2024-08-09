@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int lives = 3;
     [SerializeField] private SpawnManager spawnManager;
     [SerializeField] private GameObject TripleShotPrefab;
+    [SerializeField] private GameObject shieldPlayer;
     private bool isTripleShotActive;
     private bool isSpeedBoostActive = false;
     private bool isShieldBoostActive = false;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        shieldPlayer.SetActive(false);
         transform.position = new Vector3(1, 1, 1);
         spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
         if (spawnManager == null)
@@ -56,6 +58,7 @@ public class Player : MonoBehaviour
         if (isShieldBoostActive == true)
         {
             isShieldBoostActive = false;
+            shieldPlayer.SetActive(false);
             return;
         }
            lives--;
@@ -126,6 +129,7 @@ public class Player : MonoBehaviour
         public void shieldBoosterActive()
         {
             isShieldBoostActive = true;
+            shieldPlayer.SetActive(true);
         }
         
         IEnumerator speedBoosterPowerDownRoutine()
