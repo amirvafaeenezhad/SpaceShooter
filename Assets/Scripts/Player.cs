@@ -17,11 +17,18 @@ public class Player : MonoBehaviour
     private bool isTripleShotActive;
     private bool isSpeedBoostActive = false;
     private bool isShieldBoostActive = false;
+    [SerializeField] private int score = 0;
+    private UiManager uiManager;
 
 
 
     private void Start()
     {
+        uiManager = GameObject.Find("Canvas").GetComponent<UiManager>();
+        if (uiManager == null)
+        {
+            Debug.Log("Ui Manager is null");
+        }
         shieldPlayer.SetActive(false);
         transform.position = new Vector3(1, 1, 1);
         spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
@@ -62,12 +69,13 @@ public class Player : MonoBehaviour
             return;
         }
            lives--;
+           uiManager.UpdateLives(lives);
 
             if (lives < 1)
             {
                 spawnManager.OnPLayerDeath();
                 Destroy(this.gameObject);
-            
+
             }
         
          
@@ -136,5 +144,12 @@ public class Player : MonoBehaviour
         {
             yield return new WaitForSeconds(5);
             isSpeedBoostActive = false;
+        }
+
+        public void AddScore(int points)
+        {
+            score += points;
+            uiManager.UpdateScore(score);
+            
         }
 }

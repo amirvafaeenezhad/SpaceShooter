@@ -1,10 +1,18 @@
+using System;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
     [SerializeField] private float speedDown = 4f;
+    Player player;
+
+     void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<Player>();
+    }
 
     private void Update()
     {
@@ -40,7 +48,12 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Laser"))
         {
             Destroy(other.gameObject);
+            if (player != null)
+            {
+             player.AddScore(10);   
+            }
             Destroy(this.gameObject);
+            
         }
     }
 }

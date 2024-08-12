@@ -13,6 +13,7 @@ public class Laser : MonoBehaviour
     void Start()
     {
         Debug.Log("created");
+
     }
 
     // Update is called once per frame
