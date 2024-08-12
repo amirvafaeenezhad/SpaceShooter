@@ -15,12 +15,19 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Sprite[] liveSprites;
     [SerializeField] private TextMeshProUGUI gameOverText;
     [SerializeField] private TextMeshProUGUI restartText;
+
+    private GameManager _gameManager;
    // [SerializeField] private bool GameObject ;
     // Start is called before the first frame update
 
      void Start()
     {
         gameOverText.gameObject.SetActive(false);
+        _gameManager = GameObject.Find("Game-Manager").GetComponent<GameManager>();
+        if (_gameManager == null)
+        {
+            Debug.LogError("GameManager is NULL");
+        }
     }
 
     // Update is called once per frame
@@ -47,6 +54,7 @@ public class UiManager : MonoBehaviour
 
     void GameOverSequence()
     {
+        _gameManager.GameOver();
         gameOverText.gameObject.SetActive(true);
         restartText.gameObject.SetActive(true);
         StartCoroutine(GameOverFlickerCoRoutine());
