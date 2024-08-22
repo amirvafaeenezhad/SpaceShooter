@@ -28,14 +28,15 @@ public class UiManager : MonoBehaviour
         {
             Debug.LogError("GameManager is NULL");
         }
+        
+        scoreText.text = "score: " + 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "score: " + 0;
-        var liveSprite = liveSprites;
-        
+        // scoreText.text = "score: " + 0;
+        // var liveSprite = liveSprites;
     }
 
     public void UpdateScore(int playerScore)
